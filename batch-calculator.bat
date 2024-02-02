@@ -2,10 +2,14 @@
 
 @echo off
 title Calculator
-:inicio
-set /p i=          &::Gets user expression
-if %i% =="" exit   &::Closes program when user is done typing 
-set /a r=%i%       &::Calculates result
+:start
+echo  Insert the expression you want to calculate.
+echo  Press enter to see previous result.
+set /p i=
+if %i% =="" exit
+set /a r=%i%
 cls
-echo %i%=%r%
-goto inicio        &::Loops so program keeps receiving inputs
+echo Result: %i%=%r%
+timeout 5 >nul
+cls
+goto start
